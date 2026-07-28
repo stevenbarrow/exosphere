@@ -19,11 +19,14 @@ def get_picture(d):
     resp.raise_for_status()
     return resp.json()
 
-# most recent anniversary of the birthday
 today = date.today()
-target = birthday.replace(year=today.year)
+
+year = st.selectbox('Which year?', range(today.year, 1995, -1))
+
+target = birthday.replace(year=year)
 if target > today:
-    target = birthday.replace(year=today.year - 1)
+    st.warning("That birthday hasn't happened yet. Pick an earlier year.")
+    st.stop()
 
 st.write('Showing the picture from', target)
 
