@@ -11,6 +11,10 @@ This app retrieves the space pictures of you latest birthday
 """)
 
 
+birthday = st.text_input('Input your birthday', '2000-01-01')
+st.write('Your current selected birthday is', birthday)
+
+
 
 
 
